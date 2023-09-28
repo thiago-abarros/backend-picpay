@@ -39,7 +39,7 @@ public class TransactionService {
         }
 
         Transaction newtransaction = new Transaction();
-        newtransaction.setAmout(transaction.value());
+        newtransaction.setAmount(transaction.value());
         newtransaction.setSender(sender);
         newtransaction.setReceiver(receiver);
         newtransaction.setTimestamp(LocalDateTime.now());
