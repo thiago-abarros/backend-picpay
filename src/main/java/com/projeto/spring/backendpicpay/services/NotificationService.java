@@ -17,9 +17,11 @@ public class NotificationService {
         String email = user.getEmail();
         NotificationDTO notificationRequest = new NotificationDTO(email, message);
 
-        ResponseEntity<String> notificationResponse = restTemplate.postForEntity("http://o4d9z.mocklab.io/notify", notificationRequest, String.class);
+        // Como o mocky não funciona mais, deixei isso como provisório para focar nas outras implementações.
+        // ResponseEntity<String> notificationResponse = restTemplate.postForEntity("http://o4d9z.mocklab.io/notify", notificationRequest, String.class);
+        HttpStatus notificationResponse = HttpStatus.OK;
 
-        if(!(notificationResponse.getStatusCode() == HttpStatus.OK)){
+        if(!(notificationResponse == HttpStatus.OK)){
             System.out.println("Erro ao enviar notificação");
             throw new Exception("Serviço de notificação está fora do ar");
         }
