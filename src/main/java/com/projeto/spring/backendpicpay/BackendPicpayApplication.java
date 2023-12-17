@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class BackendPicpayApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BackendPicpayApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(BackendPicpayApplication.class, args);
+  }
 
 }

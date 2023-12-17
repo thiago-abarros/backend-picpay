@@ -14,8 +14,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.math.BigDecimal;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @DataJpaTest
 // Para o spring boot saber que é para usar o arquivo application-test ao invés do normal.
 @ActiveProfiles("test")
@@ -35,7 +33,7 @@ class UserRepositoryTest {
 
         Optional<User> result = this.userRepository.findUserByDocument(document);
 
-        assertThat(result.isPresent()).isTrue();
+        assertThat(result).isPresent();
     }
 
     @Test
@@ -45,12 +43,11 @@ class UserRepositoryTest {
 
         Optional<User> result = this.userRepository.findUserByDocument(document);
 
-        assertThat(result.isEmpty()).isTrue();
+        assertThat(result).isNotPresent();
     }
 
-    private User createUser(UserDTO data){
+    private void createUser(UserDTO data){
         User newUser = new User(data);
         this.entityManager.persist(newUser);
-        return newUser;
     }
 }
